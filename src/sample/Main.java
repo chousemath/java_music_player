@@ -8,6 +8,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -37,11 +39,38 @@ public class Main extends Application {
             }
         });
 
+        Button btnPrev = new Button();
+        btnPrev.setText("Prev");
+        btnPrev.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Previous!");
+            }
+        });
+
+        Button btnNext = new Button();
+        btnNext.setText("Next");
+        btnNext.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Next!");
+            }
+        });
+
+        Label searchLabel = new Label("Search:");
+
+        TextField searchValue = new TextField();
+
+
         grid.add(sceneTitle, 0, 0, 2, 1);
         grid.add(btnPlay, 0, 2, 2, 1);
+        grid.add(btnPrev, 0, 4, 2, 1);
+        grid.add(btnNext, 1,4,2,1);
+        grid.add(searchLabel, 0, 6, 1, 1);
+        grid.add(searchValue, 1, 6, 3,1);
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(grid, 300, 275));
+        primaryStage.setScene(new Scene(grid, 500, 500));
         primaryStage.show();
     }
 
